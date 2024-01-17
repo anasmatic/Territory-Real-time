@@ -35,7 +35,8 @@ public class LineDrawer : MonoBehaviour
 
     void UpdateLine(Vector3 playerPosition)
     {
-        if (_line != null)
+        if (_line != null &&
+            _playerPos[_playerPos.Count - 1]  != (Vector2) Camera.main.ScreenToWorldPoint(_player.transform.position))
         {
             _playerPos.Add(Camera.main.ScreenToWorldPoint(playerPosition));
             _lineRenderer.positionCount++;
